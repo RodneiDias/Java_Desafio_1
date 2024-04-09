@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class SwitCase {
     public static void main(String[] args) {
         Scanner leitura = new Scanner(System.in);
-
+        int opcao = 0;
         String linha = "*************************************";
         String textoInicial = "Dados iniciais do cliente";
         String nomeCliente = "Rodnei Ferreira Dias Santos";
@@ -31,8 +31,11 @@ public class SwitCase {
         System.out.println(linha);
         System.out.println("");
         /*Menu de opções*/
-        System.out.println(menuOperacoes);
-        int opcao = leitura.nextInt();
+
+
+        while (opcao !=4){
+            System.out.println(menuOperacoes);
+            opcao = leitura.nextInt();
 
         switch (opcao) {
             case 1:
@@ -41,8 +44,8 @@ public class SwitCase {
             case 2:
                 System.out.println("Insira o valor recebido");
                 double valorRecebido = leitura.nextDouble();
-                double novoSaldo2 = saldo + valorRecebido;
-                System.out.println("Seu saldo atual é R$" + novoSaldo2);
+                     saldo += valorRecebido;
+                System.out.println("Seu saldo atual é R$" + saldo);
                 break;
             case 3:
                 System.out.println("Insira o valor da transferência");
@@ -50,8 +53,8 @@ public class SwitCase {
                 if (valorTransferencia > saldo) {
                     System.out.println("Não há saldo suficiente para fazer essa transferência.");
                 } else {
-                    double novoSaldo3 = saldo - valorTransferencia;
-                    System.out.println("Seu saldo atual é R$" + novoSaldo3);
+                    saldo -= valorTransferencia;
+                    System.out.println("Seu saldo atual é R$" + saldo);
                 }
                 break;
             case 4:
@@ -61,7 +64,7 @@ public class SwitCase {
                 System.out.println("Opção inválida");
                 break;
         }
-
+        }
         leitura.close();
     }
 }
